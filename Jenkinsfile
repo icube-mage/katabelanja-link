@@ -73,7 +73,7 @@ pipeline {
                     } else {
                         container('deployer') {
                             sh "${ENTRYPOINT}"
-                            sh "/bin/bash ${DEPLOY} huawei-epro-transmarco kata-belanja-link-pwa belanja"
+                            sh "/bin/bash ${DEPLOY} huawei-epro-multitenant kata-belanja-link-pwa belanja"
                         }
                     }
                 }
