@@ -13,7 +13,7 @@ function detectDevice(userAgent) {
 }
 
 const redirectUrl = {
-  android: "https://play.google.com/store/apps/details?id=id.datascrip.mall",
+  android: "https://play.google.com/store/apps/details?id=com.katabelanja.id",
   ios: "itms-apps://apps.apple.com/id/app/datascripmall/id1594142562?l=id",
   other: "/",
 };
@@ -23,10 +23,10 @@ export function middleware(request) {
   const device = detectDevice(userAgent);
   // console.log("masuk middleware", device);
 
-  if (device === "android" || device === "ios") {
+  if (device === "android") {
     return NextResponse.redirect(redirectUrl[device]);
   }
-  if (device === "other") {
+  if (device === "other" || device === "ios") {
     const url = request.nextUrl.clone(); // Create a clone of the request URL to modify
     // console.log("masuk url", url);
     url.href = `${url.origin}/`;
